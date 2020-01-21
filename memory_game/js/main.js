@@ -11,25 +11,47 @@ const cardsInPlay = [
 
 ];
 
-let cardOne = cards[3];
-cardsInPlay.push(cardOne);
+const checkForMatch = () => {
+	if (cardsInPlay.length === 2) {
+		switch (cardsInPlay[0] === cardsInPlay[1]) {
+			case true:
+				alert("You found a match!");
+				break;
+			case false:
+				alert("Sorry, try again.");
+				break;
+			default:
+				alert("an error occurred");
+		}
+	}	
+}
 
-console.log("User first flipped " + cardOne);
+const flipCard = (cardId) => {
 
-let cardTwo = cards[2];
-cardsInPlay.push(cardTwo);
+	console.log("User flipped " + cards[cardId]);
 
-console.log("User next flipped " + cardTwo);
+	cardsInPlay.push(cards[cardId]);
 
-if (cardsInPlay.length === 2) {
-	switch (cardsInPlay[0] === cardsInPlay[1]) {
-		case true:
-			alert("You found a match!");
-			break;
-		case false:
-			alert("Sorry, try again.");
-			break;
-		default:
-			alert("an error occurred");
-	}
+
+	// let cardOne = cards[3];
+	// cardsInPlay.push(cardOne);
+
+	// console.log("User first flipped " + cardOne);
+
+	// let cardTwo = cards[2];
+	// cardsInPlay.push(cardTwo);
+
+	// console.log("User next flipped " + cardTwo);
+
+	checkForMatch();
+
+}
+
+flipCard(0);
+
+flipCard(2);
+
+
+const compareCards = () => {
+	//
 }
