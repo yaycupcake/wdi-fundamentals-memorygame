@@ -43,12 +43,15 @@ const checkForMatch = () => {
 		switch (cardsInPlay[0].rank === cardsInPlay[1].rank) {
 			case true:
 				console.log("You found a match!");
+				alert("You found a match!");
 				break;
 			case false:
 				console.log("Sorry, try again.");
+				alert("Sorry, try again.");
 				break;
 			default:
 				console.log("an error occurred");
+				alert("an error occurred");
 		}
 	}	
 }
