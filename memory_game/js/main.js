@@ -9,7 +9,7 @@ const cards = [
 	{
 		rank: "queen",
 		suit: "diamonds",
-		cardImage: "images/queen-of-diamondss.png"
+		cardImage: "images/queen-of-diamonds.png"
 	},
 	{
 		rank: "king",
@@ -19,9 +19,11 @@ const cards = [
 	{
 		rank: "king",
 		suit: "diamonds",
-		cardImage: "images/king-of-diamondss.png"
+		cardImage: "images/king-of-diamonds.png"
 	}
 ];
+
+const gameBoard = document.querySelector('#game-board');
 
 const cardsInPlay = [
 
@@ -51,7 +53,10 @@ const checkForMatch = () => {
 	}	
 }
 
-const flipCard = (cardId) => {
+function flipCard() {
+
+	let cardId = this.getAttribute('data-id');
+	this.setAttribute('src', cards[cardId].cardImage);
 
 	console.log("User flipped " + cards[cardId].rank);
 
@@ -62,11 +67,20 @@ const flipCard = (cardId) => {
 
 }
 
-flipCard(0);
-
-flipCard(2);
 
 
-const compareCards = () => {
-	//
+
+//
+
+const createBoard = () => {
+	for (let i = 0; i < cards.length; i++) {
+		let cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.className = 'card';
+		cardElement.addEventListener('click', flipCard);
+		gameBoard.appendChild(cardElement);
+	}
 }
+
+createBoard();
